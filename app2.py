@@ -41,6 +41,7 @@ def verify_password(username, password):
 def create_user():
     data = request.json
     username = data['username']
+    print()
     if request.args:
         return make_response('', 400, {'Cache-Control': 'no-cache'})
 
