@@ -39,7 +39,7 @@ jobs:
 
       - name: Check MySQL Connection
         run: |
-          mysql -h mysql -u root -p password -e "SHOW DATABASES;"
+          mysql -h mysql -u root -ppassword -e "SHOW DATABASES;"
             
         
 
