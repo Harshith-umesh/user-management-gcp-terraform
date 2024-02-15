@@ -8,15 +8,11 @@ on:
 jobs:
   integration-test:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: Users 
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping -h localhost" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    env:
+      DB_DATABASE: Users
+      DB_USER: root
+      DB_PASSWORD: root
 
     steps:
       - name: Checkout Repository
@@ -27,6 +23,11 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Set up MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -36,11 +37,6 @@ jobs:
       - name: Configure Application
         run: |
           echo "SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:password@mysql/Users" > .env
-
-      - name: Check MySQL Service Availability
-        run: |
-          ping -c 4 mysql
-
 
       - name: Check MySQL Connection
         run: |
