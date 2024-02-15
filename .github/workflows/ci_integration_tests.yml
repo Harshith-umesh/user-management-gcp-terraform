@@ -36,7 +36,7 @@ jobs:
 
       - name: Configure Application
         run: |
-          echo "SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:password@mysql/Users" > .env
+          echo "SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root@localhost/Users" > .env
 
       - name: Check MySQL Connection
         run: |
