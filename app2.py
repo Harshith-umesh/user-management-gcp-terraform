@@ -12,7 +12,7 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 
 # database configurations
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:mysql123@localhost/Users'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/Users'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -41,6 +41,7 @@ def verify_password(username, password):
 def create_user():
     data = request.json
     username = data['username']
+    print()
     if request.args:
         return make_response('', 400, {'Cache-Control': 'no-cache'})
 
