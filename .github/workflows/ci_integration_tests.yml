@@ -37,6 +37,11 @@ jobs:
         run: |
           echo "SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:password@mysql/Users" > .env
 
+      - name: Check MySQL Service Availability
+        run: |
+          ping -c 4 mysql
+
+
       - name: Check MySQL Connection
         run: |
           mysql -h mysql -u root -ppassword -e "SHOW DATABASES;"
