@@ -31,11 +31,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest flask-testing
+          pip install pytest flask-testing python-dotenv
 
       - name: Configure Application
         run: |
           echo "SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:password@mysql/Users" > .env
+
+      - name: Check MySQL Connection
+        run: |
+          mysql -h mysql -u root -p password -e "SHOW DATABASES;"
+            
         
 
       # Additional step for initializing the database
