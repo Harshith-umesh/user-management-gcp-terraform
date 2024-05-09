@@ -16,7 +16,7 @@ This repository contains the code for a RESTful API developed with Python and Fl
 
 The project utilizes a layered cloud architecture optimized for high availability and secure, scalable performance. Below is the cloud architecture diagram illustrating the setup:
 
-![Cloud Architecture Diagram](user-management-gcp-terraform/Architecture.png)
+![Cloud Architecture Diagram](Architecture.png)
 
 ## Key Technologies and Implementations
 
@@ -51,14 +51,16 @@ The project utilizes a layered cloud architecture optimized for high availabilit
 ### Deployment
 
 1. **Clone the repository**
-git clone https://github.com/yourusername/user-management-gcp-terraform.git
-cd user-management-gcp-terraform
+
+- git clone https://github.com/yourusername/user-management-gcp-terraform.git
+- cd user-management-gcp-terraform
 
 
 2. **Initialize Terraform**
-terraform init
+
+- terraform init
 
 
 3. **Apply Terraform configuration**
 
-terraform apply
+- terraform apply
