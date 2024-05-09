@@ -1,0 +1,31 @@
+➜  packerr packer --version
+
+➜  packerr packer plugins install github.com/hashicorp/googlecompute
+
+➜  packerr packer validate packer-1.json   
+
+gcloud compute ssh --project=metal-appliance-414300 --zone=us-east1-b instance-20240221-205102
+
+sudo systemctl list-units --type=service
+
+sudo ls /home/csye6225/
+sudo ls /home/packer/
+sudo su - packer
+sudo su - csye6225
+
+sudo systemctl status flaskapp.service
+sudo journalctl -u flaskapp.service
+
+for debugging:
+create a new folder in home/harshithumesh
+sudo cp -r /opt/csye6225/webapp/* webapp2/
+sudo python3.8 -m venv venvv
+source venvv/bin/activate
+pip3.8 install pytest flask-testing python-dotenv cryptography flask-sqlalchemy flask-migrate flask-bcrypt flask-httpauth python-json-logger pymysql google-cloud-pubsub
+sudo chown harshithumesh:harshithumesh /opt/csye6225/db_properties.ini
+sudo chown harshithumesh:harshithumesh /var/log/webapp/app.log
+
+
+sudo systemctl stop flaskapp
+sudo systemctl status flaskapp.service
+python app2.py
