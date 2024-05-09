@@ -327,7 +327,7 @@ resource "google_cloudfunctions_function" "verify_email_function" {
   entry_point = "send_verification_email"
 
   environment_variables = {
-    MAILGUN_DOMAIN = "bharathbhaskar.me"
+    MAILGUN_DOMAIN = "harshithumesh.me"
     MAILGUN_API_KEY = "3aa5b7aec14341f5adb31b70619144ff-f68a26c9-44c6d1a4"
   }
 
